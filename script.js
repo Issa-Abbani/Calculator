@@ -1,4 +1,5 @@
 const gridBtns = document.querySelector(".buttons");
+const screen = document.querySelector("#screen");
 
 function generateGrid(){
 const buttons = [
@@ -19,7 +20,17 @@ buttons.forEach((button,index) =>{
     btn.classList.add("first-in-row");
     }
 })
+}
 
+function buttonEvent() {
+  const allBtns = document.querySelectorAll(".buttons button");
+
+  allBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      screen.innerHTML += btn.textContent;
+    });
+  });
 }
 
 generateGrid();
+buttonEvent();

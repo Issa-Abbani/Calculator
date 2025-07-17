@@ -36,6 +36,12 @@ body{
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   border: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#screen::-webkit-scrollbar{
+  display: none;
 }
 
 .buttons{
