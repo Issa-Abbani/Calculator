@@ -1,5 +1,6 @@
 const gridBtns = document.querySelector(".buttons");
 const screen = document.querySelector("#screen");
+let operator = '';
 
 function generateGrid(){
 const buttons = [
@@ -19,6 +20,10 @@ buttons.forEach((button,index) =>{
     if (index % 4 === 0) {
     btn.classList.add("first-in-row");
     }
+
+    if(btn.textContent === '='){
+      btn.classList.add("equal-btn");
+    }
 })
 }
 
@@ -29,7 +34,7 @@ function buttonEvent() {
     btn.addEventListener("click", () => {
 
       if(btn.textContent === 'C'){
-        screen.textContent = '';
+        clearScreen();
       } 
       else if(btn.textContent === '='){
         screen.textContent = '';
@@ -39,6 +44,10 @@ function buttonEvent() {
       }
     });
   });
+}
+
+function clearScreen(){
+  screen.textContent = '';
 }
 
 
