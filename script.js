@@ -27,7 +27,7 @@ function buttonEvent() {
 
   allBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      screen.innerHTML += btn.textContent;
+      screen.innerHTML = btn.textContent;
     });
   });
 }
