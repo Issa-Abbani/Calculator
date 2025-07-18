@@ -78,3 +78,8 @@ body{
 .first-in-row{
   background-color: var(--special-btn-bg);
 }
+
+.first-in-row:focus {
+  background-color: white;
+  color: black;
+}

@@ -1,6 +1,9 @@
 const gridBtns = document.querySelector(".buttons");
 const screen = document.querySelector("#screen");
+let firstOperand = '';
+let secondOperand = '';
 let operator = '';
+let isTypingSecondOperand = false;
 
 function generateGrid(){
 const buttons = [
@@ -27,30 +30,50 @@ buttons.forEach((button,index) =>{
 })
 }
 
+function clearScreen(){
+  screen.textContent = '';
+  firstOperand = '';
+  secondOperand = '';
+  operator = '';
+  isTypingSecondOperand = false;
+}
+
+
+
 function buttonEvent() {
   const allBtns = document.querySelectorAll(".buttons button");
 
-  allBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
+      allBtns.forEach(btn => {
 
-      if(btn.textContent === 'C'){
-        clearScreen();
-      } 
-      else if(btn.textContent === '='){
-        screen.textContent = '';
-      }
-      else{
-        screen.textContent += btn.textContent;
-      }
-    });
-  });
+        //clear btn event listener
+        if(btn.textContent === 'C'){
+          btn.addEventListener("click", () =>{
+            clearScreen();
+          })
+          
+        } 
+        //number btns event listener
+        else{
+          btn.addEventListener("click", () => {
+            screen.textContent += btn.textContent;
+          });
+        }
+      });
+    
 }
 
-function clearScreen(){
-  screen.textContent = '';
+function operate(a, op, b) {
+  a = parseFloat(a);
+  b = parseFloat(b);
+
+  switch(op) {
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return b !== 0 ? a / b : 'ERROR!';
+    default: return 'ERROR';
+  }
 }
-
-
 
 generateGrid();
 buttonEvent();
