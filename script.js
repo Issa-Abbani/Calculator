@@ -27,10 +27,21 @@ function buttonEvent() {
 
   allBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      screen.innerHTML = btn.textContent;
+
+      if(btn.textContent === 'C'){
+        screen.textContent = '';
+      } 
+      else if(btn.textContent === '='){
+        screen.textContent = '';
+      }
+      else{
+        screen.textContent += btn.textContent;
+      }
     });
   });
 }
+
+
 
 generateGrid();
 buttonEvent();
